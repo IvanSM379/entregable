@@ -69,7 +69,6 @@
             const puntuacion=document.getElementById('Total');
             const boton=document.getElementById('boton_girar');
             boton.disabled=true;
-            puntos=puntos-100;
             resultado.textContent = 'Prueba tu suerte 😉 cada tirada son 100 puntos'; 
             resultado.style.color = 'black'; 
 
@@ -105,29 +104,34 @@
                 const simbolo_cuadro_2 = cuadro2.textContent;
                 const simbolo_cuadro_3 = cuadro3.textContent;
 
-                if (simbolo_cuadro_1===simbolo_cuadro_2 && simbolo_cuadro_2===simbolo_cuadro_3){
+                if (simbolo_cuadro_1 === simbolo_cuadro_2 && simbolo_cuadro_2 === simbolo_cuadro_3){
                     if (simbolo_cuadro_1=== '7'){
                         resultado.textContent= ' Wow ganaste 1000 puntos 🤑 ';
-                        puntos += 1000;
+                        puntos =puntos + 1000;
                         resultado.style.color='yellow';
+                        puntuacion.textContent='Puntos: '+ puntos;
                     }else if(simbolo_cuadro_1=== '🍒'){
                         resultado.textContent= ' Felicidades ganaste 500 puntos 🤯';
-                        puntos += 500;
+                        puntos = puntos + 500;
                         resultado.style.color='red';
+                        puntuacion.textContent='Puntos: '+ puntos;
                     }else if(simbolo_cuadro_1=== '🍎'){
                         resultado.textContent= ' No es mucho pero ganaste 100 puntos 👍';
-                        puntos += 100;
-                        resultado.style.color='green';
+                        puntos = puntos + 100;
+                        resultado.style.color='red';
+                        puntuacion.textContent='Puntos: '+ puntos;
                     }else if(simbolo_cuadro_1=== '🔔'){
                         resultado.textContent= 'La proxima es la vencida ganaste 50 puntos 😉';
-                        puntos += 50;
+                        puntos = puntos + 50;
                         resultado.style.color='blue';
+                        puntuacion.textContent='Puntos: '+ puntos;
                     }
                 }else { 
                         resultado.textContent = 'Mejor suerte la proxima 🥱'; 
-                        resultado.style.color = 'red'; 
+                        resultado.style.color = 'red';
+                        puntos = puntos-100; 
                 }
-                puntuacion.textContent='Puntos: '+puntos;
+                puntuacion.textContent='Puntos: '+ puntos;
                 boton.disabled=false;
             },6000);
         }
